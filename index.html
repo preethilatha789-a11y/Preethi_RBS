@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday Ruchitha! - Angry Birds Birthday Edition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-shell">
+    <canvas id="game-canvas" width="1280" height="720"></canvas>
+    <canvas id="celebration-canvas" width="1280" height="720"></canvas>
+
+    <!-- Top HUD -->
+    <div id="hud" class="hidden">
+      <div class="hud-left">
+        <button id="btn-menu" class="hud-btn" title="Main Menu" aria-label="Main Menu">🏠</button>
+        <button id="btn-restart" class="hud-btn" title="Restart Level" aria-label="Restart Level">🔄</button>
+        <div class="hud-pill" id="level-badge">Level 1: Party Tower</div>
+      </div>
+
+      <div class="hud-center">
+        <div class="hud-pill pig-counter">
+          <span class="pig-dot">🐷</span>
+          <span id="pigs-left">3</span> left
+        </div>
+        <div class="hud-pill ability-hint" id="ability-hint">Drag bird on slingshot & release!</div>
+      </div>
+
+      <div class="hud-right">
+        <div class="hud-pill score-pill">
+          <span class="score-label">SCORE</span>
+          <span id="score-value">0</span>
+        </div>
+        <button id="btn-sound" class="hud-btn" title="Toggle Sound" aria-label="Toggle Sound">🔊</button>
+      </div>
+    </div>
+
+    <!-- Start / Title Screen -->
+    <div id="start-overlay" class="overlay">
+      <div class="title-card">
+        <div class="birthday-ribbon">🎂 SPECIAL BIRTHDAY EDITION FOR RUCHITHA 🎂</div>
+        <h1 class="game-logo">
+          <span class="logo-angry">ANGRY</span>
+          <span class="logo-birds">BIRDS</span>
+        </h1>
+        <p class="subtitle">Pop all the Party Piggies to unlock Ruchitha's Birthday Surprise!</p>
+
+        <div class="bird-parade" aria-hidden="true">
+          <span class="parade-bird red">🐦</span>
+          <span class="parade-heart">💖</span>
+          <span class="parade-bird yellow">🐤</span>
+          <span class="parade-heart">🎉</span>
+          <span class="parade-bird pink">🩷</span>
+        </div>
+
+        <div class="level-select-row">
+          <button class="level-chip active" data-level="0">1. Party Tower</button>
+          <button class="level-chip" data-level="1">2. Gift Fortress</button>
+          <button class="level-chip" data-level="2">3. Royal Cake Castle</button>
+        </div>
+
+        <button id="btn-play" class="big-play-btn">▶ PLAY!</button>
+
+        <div class="controls-tip">
+          <span>🎯 Pull slingshot to aim</span>
+          <span>✨ Tap / Space mid-air for bird power!</span>
+          <span>🔊 Turn volume up for sounds!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Win / Happy Birthday Ruchitha Celebration Overlay -->
+    <div id="win-overlay" class="overlay hidden">
+      <div class="celebration-card">
+        <div class="floating-birds-badge" aria-hidden="true">
+          <span class="wing-bird b1">🐦</span>
+          <span class="wing-bird b2">💖</span>
+          <span class="wing-bird b3">🐤</span>
+          <span class="wing-bird b4">💝</span>
+          <span class="wing-bird b5">🩷</span>
+        </div>
+
+        <div class="stars-row" id="stars-row">
+          <span class="star" id="star-1">★</span>
+          <span class="star star-mid" id="star-2">★</span>
+          <span class="star" id="star-3">★</span>
+        </div>
+
+        <div class="win-tag">LEVEL CLEARED!</div>
+
+        <h2 class="hbd-title">
+          <span class="heart-beat">❤️</span>
+          Happy Birthday Ruchitha!
+          <span class="heart-beat">💖</span>
+        </h2>
+
+        <p class="hbd-message">
+          May your day soar as high as the birds, burst with laughter,
+          and be filled with endless love, cake, and magic! 🎂✨
+        </p>
+
+        <div class="win-stats">
+          <div class="stat-box">
+            <div class="stat-label">FINAL SCORE</div>
+            <div class="stat-num" id="win-score">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">HEARTS SENT</div>
+            <div class="stat-num" id="win-hearts">💖 0</div>
+          </div>
+        </div>
+
+        <div class="win-actions">
+          <button id="btn-celebrate-more" class="action-btn btn-pink">💖 Song & Hearts!</button>
+          <button id="btn-next-level" class="action-btn btn-green">Next Level ➡</button>
+          <button id="btn-replay-win" class="action-btn btn-blue">🔄 Play Again</button>
+        </div>
+
+        <p class="tap-hearts-hint">💡 Tip: Click anywhere on the screen to pop extra birthday hearts & birds!</p>
+      </div>
+    </div>
+
+    <!-- Lose / Retry Overlay -->
+    <div id="lose-overlay" class="overlay hidden">
+      <div class="lose-card">
+        <div class="lose-emoji">🐷🎉</div>
+        <h2>So Close!</h2>
+        <p>The Party Piggies survived that round. Give it another shot for Ruchitha's Birthday!</p>
+        <div class="win-actions">
+          <button id="btn-retry" class="action-btn btn-green">🔄 Try Again</button>
+          <button id="btn-lose-menu" class="action-btn btn-blue">🏠 Levels</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
